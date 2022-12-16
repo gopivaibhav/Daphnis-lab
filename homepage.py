@@ -13,7 +13,7 @@ session = HTMLSession()
 
 for URL in URLmain:
     r = session.get(URL)
-    r.html.render(sleep=1, timeout=20)
+    r.html.render(sleep=1, timeout=35)
     # finaldataforjson = {}
 
     productdetails = r.html.find('.product-list-v2__container')
@@ -32,7 +32,7 @@ for URL in URLmain:
     for page in range(2, int(totalpages) + 1):
         URL = URL.split('?')[0] + '?page='+str(page)
         r = session.get(URL)
-        r.html.render(sleep=1, timeout=20)
+        r.html.render(sleep=1, timeout=35)
         productdetails = r.html.find('.product-list-v2__container')
         productsoup = BeautifulSoup(productdetails[0].html, features="html.parser")
         cards = productsoup.find_all(class_="S-product-item__name")
