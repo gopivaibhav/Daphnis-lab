@@ -25,8 +25,9 @@ def upload_url(URL):
 
 
 def get_urls():
-    urlList = []
-    items = collection_name.find()
-    for item in items:
-        urlList.append(item['link'])
-    return urlList
+    return collection_name.find()
+
+def update_fetched(URL):
+    filterobj = {'link': URL}
+    newvalues = {"$set": { 'fetched': True }}
+    collection_name.update_one(filterobj, newvalues)

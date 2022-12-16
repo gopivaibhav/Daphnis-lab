@@ -3,3 +3,4 @@ venv
 del.py
 __pycache__
 *.json
+nodeserver
