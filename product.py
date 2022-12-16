@@ -17,6 +17,8 @@ session = HTMLSession()
 # for URL in urlList:
 for obj in urlcheck.get_urls():
     if(not obj['fetched']):
+        urlcheck.update_fetched(obj['link'])
+        print('Updated in MongoDB')
         r = session.get(obj['link'])
         # print(r.status_code, 'r value')
         r.html.render(sleep=1, timeout=35)
@@ -151,7 +153,5 @@ for obj in urlcheck.get_urls():
         collection_name.insert_many([finaldataforjson])
         # print(json.dumps(finaldataforjson, indent=3))
         print('Saved data for ', finaldataforjson['uniquesku'])
-        urlcheck.update_fetched(obj['link'])
-        print('Updated in MongoDB')
         images.download_image(finaldataforjson)
         print('Downloaded images for ', finaldataforjson['uniquesku'])

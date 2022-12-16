@@ -1,6 +1,6 @@
 .env
 venv
-del.py
+download-images/
 __pycache__
 *.json
 nodeserver
