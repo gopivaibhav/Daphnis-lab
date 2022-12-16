@@ -18,7 +18,8 @@ def is_url_present(URL):
 
 def upload_url(URL):
     item = {
-        "link": URL
+        "link": URL,
+        "fetched":False
     }
     collection_name.insert_many([item])
     print("Uploaded "+ URL)
