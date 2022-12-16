@@ -18,14 +18,14 @@ session = HTMLSession()
 for obj in urlcheck.get_urls():
     if(not obj['fetched']):
         r = session.get(obj['link'])
-        print(r.status_code, 'r value')
+        # print(r.status_code, 'r value')
         r.html.render(sleep=1, timeout=35)
-        print(r.html.find('body'), 'r -> html \n\n\n\n')
+        # print(r.html.find('body'), 'r -> html \n\n\n\n')
         finaldataforjson = {}
 
         productdetails = r.html.find('.goods-detailv2__media-inner')
         productsoup = BeautifulSoup(productdetails[0].html, features="html.parser")
-        print("Got the product details bro")
+        # print("Got the product details bro")
         # Content details
         price = productsoup.find_all(class_="product-intro__head-price")[0].find_all('span')[0]
         price = price.string.replace('€','').replace(',', '.').strip()
