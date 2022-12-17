@@ -150,6 +150,7 @@ for obj in urlcheck.get_urls():
         client = MongoClient(os.getenv('PRODUCT_MONGO'))
         dbname =  client['shein-prod']
         collection_name = dbname["products"]
+        checkval = collection_name.find_one({'uniquesku': finaldataforjson['uniquesku']})
         if(checkval == None):
             collection_name.insert_many([finaldataforjson])
         # collection_name.insert_many([finaldataforjson])
