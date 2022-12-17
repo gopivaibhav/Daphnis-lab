@@ -150,7 +150,9 @@ for obj in urlcheck.get_urls():
         client = MongoClient(os.getenv('PRODUCT_MONGO'))
         dbname =  client['shein-prod']
         collection_name = dbname["products"]
-        collection_name.insert_many([finaldataforjson])
+        if(checkval == None):
+            collection_name.insert_many([finaldataforjson])
+        # collection_name.insert_many([finaldataforjson])
         # print(json.dumps(finaldataforjson, indent=3))
         print('Saved data for ', finaldataforjson['uniquesku'])
         images.download_image(finaldataforjson)
