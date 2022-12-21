@@ -4,3 +4,4 @@ download-images/
 __pycache__
 *.json
 nodeserver
+del.py

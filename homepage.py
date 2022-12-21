@@ -3,14 +3,13 @@ from requests_html import HTMLSession
 import time, proxy, urlcheck
 
 URLmain = [
-            'https://eur.shein.com/Women-Two-piece-Outfits-c-1780.html?page=1',
-            'https://eur.shein.com/Women-Jumpsuits-Bodysuits-c-3287.html?page=1',
-            'https://eur.shein.com/Sports-c-3195.html?page=1',
-            'https://eur.shein.com/Women-Denim-c-1930.html?page=1',
-            'https://eur.shein.com/Women-Beachwear-c-2039.html?page=1',
-            'https://eur.shein.com/Women-Sleep-Lounge-c-3626.html?page=1',
-            'https://eur.shein.com/Women-Intimates-c-3625.html?page=1',
-            'https://eur.shein.com/Cosplay-Costumes-c-3066.html?page=1'
+            'https://eur.shein.com/Women-Sexy-Lingerie-c-1862.html?page=1',
+            'https://eur.shein.com/category/Sexy-Costumes-sc-00855966.html?page=1',
+            'https://eur.shein.com/Women-Bras-Bralettes-c-2203.html?page=1',
+            'https://eur.shein.com/Women-Panties-c-2205.html?page=1',
+            'https://eur.shein.com/Women-Bra-Panty-Sets-c-2270.html?page=1',
+            'https://eur.shein.com/Weddings-Events-c-3088.html?page=1',
+            'https://eur.shein.com/Women-Suits-c-2036.html?page=1'
         ]
 
 session = HTMLSession()
