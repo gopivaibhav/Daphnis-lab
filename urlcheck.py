@@ -26,6 +26,11 @@ def upload_url(URL):
 
 
 def get_urls():
+    # items = [{
+    #     'link':'https://eur.shein.com/SHEIN-SXY-Buffalo-Plaid-Print-Pocket-Patched-Fleece-Coat-p-3820281-cat-1735.html',
+    #     'fetched': False
+    # }]
+    # return items
     return collection_name.find()
 
 def update_fetched(URL):

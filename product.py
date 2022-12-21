@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
-import urlcheck, os, images, json
+import urlcheck, os, images, time
 from pymongo import MongoClient
 
 from dotenv import load_dotenv
@@ -19,12 +19,13 @@ for obj in urlcheck.get_urls():
     if(not obj['fetched']):
         urlcheck.update_fetched(obj['link'])
         print('Updated in MongoDB')
+        time.sleep(5)
         r = session.get(obj['link'])
         # print(r.status_code, 'r value')
+        time.sleep(3)
         r.html.render(sleep=1, timeout=35)
         # print(r.html.find('body'), 'r -> html \n\n\n\n')
         finaldataforjson = {}
-
         productdetails = r.html.find('.goods-detailv2__media-inner')
         productsoup = BeautifulSoup(productdetails[0].html, features="html.parser")
         # print("Got the product details bro")
@@ -158,3 +159,4 @@ for obj in urlcheck.get_urls():
         print('Saved data for ', finaldataforjson['uniquesku'])
         images.download_image(finaldataforjson)
         print('Downloaded images for ', finaldataforjson['uniquesku'])
+        time.sleep(5)
