@@ -17,7 +17,7 @@ session = HTMLSession()
 # for URL in urlList:
 for obj in urlcheck.get_urls():
     if(not obj['fetched']):
-        urlcheck.update_fetched(obj['link'])
+        # urlcheck.update_fetched(obj['link'])
         print('Updated in MongoDB')
         time.sleep(5)
         r = session.get(obj['link'])
@@ -100,10 +100,11 @@ for obj in urlcheck.get_urls():
         picturesinfo = productsoup.find_all(class_="product-intro__thumbs-item")
         pictures = []
         for element in picturesinfo:
-            tag = element.img
-            imgtag = tag['src'].split('_thumbnail_')[0]
-            imgtag = 'https:' + imgtag + '_thumbnail_500x.webp'
-            pictures.append(imgtag)
+            if(element.img):
+                tag = element.img
+                imgtag = tag['src'].split('_thumbnail_')[0]
+                imgtag = 'https:' + imgtag + '_thumbnail_500x.webp'
+                pictures.append(imgtag)
         finaldataforjson['images'] = pictures
 
 
