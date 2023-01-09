@@ -17,7 +17,7 @@ session = HTMLSession()
 # for URL in urlList:
 for obj in urlcheck.get_urls():
     if(not obj['fetched']):
-        # urlcheck.update_fetched(obj['link'])
+        urlcheck.update_fetched(obj['link'])
         print('Updated in MongoDB')
         time.sleep(5)
         r = session.get(obj['link'])
